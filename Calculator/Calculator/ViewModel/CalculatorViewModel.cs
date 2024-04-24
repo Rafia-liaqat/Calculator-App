@@ -11,9 +11,10 @@ namespace Calculator.ViewModel
 
     public class CalculatorViewModel : INotifyPropertyChanged
     {
+       
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private Calculators calculatorModel;
+        private Calculators calculators;
         public ICommand ButtonCommand { get; private set; }
 
         private string displayText;
@@ -30,11 +31,11 @@ namespace Calculator.ViewModel
             }
         }
 
-        private string previousButtonClicked; // Field to track previous button clicked
+        private string previousButtonClicked;
 
         public CalculatorViewModel()
         {
-            calculatorModel = new Calculators();
+            calculators = new Calculators();
             ButtonCommand = new Command<string>(ButtonClicked);
             DisplayText = "0";
         }
@@ -44,7 +45,7 @@ namespace Calculator.ViewModel
             if (buttonText == "AC")
             {
                 DisplayText = "0";
-                calculatorModel.FirstNumber = 0;
+                calculators.FirstNumber = 0;
             }
             else if (buttonText == "--")
             {
@@ -65,27 +66,26 @@ namespace Calculator.ViewModel
             }
             else if (buttonText == "+" || buttonText == "-" || buttonText == "*" || buttonText == "/")
             {
-                // Check if the previous button clicked is the same as the current one
                 if (previousButtonClicked != buttonText)
                 {
-                    calculatorModel.FirstNumber = Convert.ToDecimal(DisplayText);
-                    calculatorModel.OperatorName = buttonText;
+                    calculators.FirstNumber = Convert.ToDecimal(DisplayText);
+                    calculators.OperatorName = buttonText;
                     DisplayText = "0";
                 }
-                // Update the previousButtonClicked
                 previousButtonClicked = buttonText;
             }
             else if (buttonText == "=")
             {
                 decimal secondNumber = Convert.ToDecimal(DisplayText);
-                string finalResult = calculatorModel.Calculate(secondNumber).ToString("0.##");
-                DisplayText = finalResult;
+                string expression = $"{calculators.FirstNumber} {calculators.OperatorName} {secondNumber} = ";
+                string finalResult = calculators.Calculate(secondNumber).ToString("0.##");
+                DisplayText = $"{expression}{finalResult}";
             }
             else
             {
-                if (DisplayText == "0" || calculatorModel.IsOperatorClicked)
+                if (DisplayText == "0" || calculators.IsOperatorClicked)
                 {
-                    calculatorModel.IsOperatorClicked = false;
+                    calculators.IsOperatorClicked = false;
                     DisplayText = buttonText;
                 }
                 else
