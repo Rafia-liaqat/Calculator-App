@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.HomePage"
+             xmlns:local="clr-namespace:Calculator.ViewModel"
+             BackgroundColor="Black">
+    <ContentPage.BindingContext>
+        <local:CalculatorViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+        <Label Text="Calculator" TextColor="Gray" FontSize="50" FontFamily="digital-7.ttf#Digital-7 Regualar" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Padding="35" Margin="0,0,0,30"/>
+        <Frame BackgroundColor="WhiteSmoke"  CornerRadius="20" 
+           Padding="15" Margin="0,0,0,20">
+            <Label Text="{Binding DisplayText}"
+               FontFamily="digital-7.ttf#Digital-7 Regualar"
+               FontSize="50"
+               FontAttributes="Bold"
+               HorizontalOptions="End"
+               TextColor="LightGray"></Label>
+        </Frame>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Button 
+                Grid.Row="0" 
+                Grid.Column="0" 
+                Text="AC" 
+                FontSize="Large" 
+                FontAttributes="Bold" 
+                Padding="18"
+                CornerRadius="70"
+                Command="{Binding ButtonCommand}" 
+                CommandParameter="AC"/>
+            <Button 
+                Grid.Row="0" 
+                Grid.Column="1" 
+                Text="--" 
+                FontSize="Large" 
+                FontAttributes="Bold" 
+                Padding="18"
+                CornerRadius="70"
+                Command="{Binding ButtonCommand}" 
+                CommandParameter="--"/>
+            <Button 
+                Grid.Row="0" 
+                Grid.Column="2" 
+                Text="%" 
+                FontSize="Large" 
+                FontAttributes="Bold" 
+                Padding="18"
+                CornerRadius="70"
+                Command="{Binding ButtonCommand}" 
+                CommandParameter="%"/>
+            <Button 
+                Grid.Row="0" 
+                Grid.Column="3" 
+                Text="/" 
+                FontSize="Large" 
+                FontAttributes="Bold" 
+                Padding="18"
+                CornerRadius="70"
+                BackgroundColor="Orange"
+                TextColor="White"
+                Command="{Binding ButtonCommand}" 
+                CommandParameter="/"/>
+           
+            <Button 
+               Grid.Row="1" 
+               Grid.Column="0"
+               Text="1"
+               FontSize="Large"
+               FontAttributes="Bold"
+               Padding="18"
+               CornerRadius="70"
+               BackgroundColor="Gray"
+               TextColor="White"
+               Command="{Binding ButtonCommand}" 
+                CommandParameter="1"/>
+            <Button 
+               Grid.Row="1" 
+               Grid.Column="1"
+               Text="2"
+               FontSize="Large"
+               FontAttributes="Bold"
+               CornerRadius="70"
+               Padding="18"
+                TextColor="White"
+               BackgroundColor="Gray"
+                Command="{Binding ButtonCommand}" 
+                CommandParameter="2"/>
+            <Button 
+               Grid.Row="1" 
+               Grid.Column="2"
+               Text="3"
+               FontSize="Large"
+               FontAttributes="Bold"
+               BackgroundColor="Gray"
+               CornerRadius="70"
+               Padding="18"
+                TextColor="White"
+               Command="{Binding ButtonCommand}" 
+               CommandParameter="3"/>
+            <Button 
+              Grid.Row="1" 
+              Grid.Column="3"
+              Text="*"
+              FontSize="Large"
+              BackgroundColor="Orange"
+              FontAttributes="Bold"
+              CornerRadius="70"
+                TextColor="White"
+              Padding="18"
+              Command="{Binding ButtonCommand}" 
+              CommandParameter="*"/>
+            
+            <Button 
+              Grid.Row="2" 
+              Grid.Column="0"
+              Text="4"
+              FontSize="Large"
+              FontAttributes="Bold"
+              BackgroundColor="Gray"
+                TextColor="White"
+              Padding="18"
+              CornerRadius="70"
+              Command="{Binding ButtonCommand}" 
+              CommandParameter="4"/>
+            <Button 
+              Grid.Row="2" 
+              Grid.Column="1"
+              Text="5"
+              FontSize="Large"
+              FontAttributes="Bold"
+              Padding="18"
+              CornerRadius="70"
+              BackgroundColor="Gray"
+                TextColor="White"
+              Command="{Binding ButtonCommand}" 
+              CommandParameter="5"/>
+            <Button 
+              Grid.Row="2" 
+              Grid.Column="2"
+              Text="6"
+              FontSize="Large"
+              FontAttributes="Bold"
+              BackgroundColor="Gray"
+                TextColor="White"
+              Padding="18"
+              CornerRadius="70"
+              Command="{Binding ButtonCommand}" 
+              CommandParameter="6"/>
+            <Button 
+               Grid.Row="2" 
+               Grid.Column="3"
+               Text="-"
+               FontSize="Large"
+               FontAttributes="Bold"
+                TextColor="White"
+               Padding="18"
+               CornerRadius="70"
+                BackgroundColor="Orange"
+               Command="{Binding ButtonCommand}" 
+               CommandParameter="-"/>
+
+            <Button 
+               Grid.Row="3" 
+               Grid.Column="0"
+               Text="7"
+               FontSize="Large"
+               FontAttributes="Bold"
+               Padding="18"
+               CornerRadius="70"
+               BackgroundColor="Gray"
+                TextColor="White"
+               Command="{Binding ButtonCommand}" 
+               CommandParameter="7"/>
+            <Button 
+              Grid.Row="3" 
+              Grid.Column="1"
+              Text="8"
+              FontSize="Large"
+              FontAttributes="Bold"
+              Padding="18"
+              CornerRadius="70"
+                TextColor="White"
+              BackgroundColor="Gray"
+              Command="{Binding ButtonCommand}" 
+              CommandParameter="8"/>
+            <Button 
+               Grid.Row="3" 
+               Grid.Column="2"
+               Text="9"
+               FontSize="Large"
+               FontAttributes="Bold"
+               BackgroundColor="Gray"
+                TextColor="White"
+               CornerRadius="70"               
+                Padding="18"
+               Command="{Binding ButtonCommand}" 
+               CommandParameter="9"/>
+            <Button 
+              Grid.Row="3" 
+              Grid.Column="3"
+              Grid.RowSpan="2"
+              Text="+"
+              FontSize="Large"
+              FontAttributes="Bold"
+              Padding="18"
+              CornerRadius="70"
+                TextColor="White"
+               BackgroundColor="Orange"
+              Command="{Binding ButtonCommand}"
+              CommandParameter="+"/>
+
+            <Button 
+              Grid.Row="4" 
+              Grid.Column="0"
+              Text="."
+              FontSize="Large"
+              FontAttributes="Bold"
+              Padding="18"
+              CornerRadius="70"
+                TextColor="White"
+              BackgroundColor="Gray"
+              Command="{Binding ButtonCommand}" 
+              CommandParameter="."/>
+            <Button 
+              Grid.Row="4" 
+              Grid.Column="1"
+              Text="0"
+              FontSize="Large"
+              FontAttributes="Bold"
+              BackgroundColor="Gray"
+              Padding="18"
+               CornerRadius="70"
+                TextColor="White"
+              Command="{Binding ButtonCommand}" 
+              CommandParameter="0"/>
+            <Button 
+              Grid.Row="4" 
+              Grid.Column="2"
+              Text="="
+              FontSize="Large"
+              FontAttributes="Bold"
+              BackgroundColor="Gray"
+                TextColor="White"
+               Padding="18"
+                CornerRadius="70"
+               Command="{Binding ButtonCommand}" 
+              CommandParameter="="/>
+        </Grid>
+    </StackLayout>
+</ContentPage>
