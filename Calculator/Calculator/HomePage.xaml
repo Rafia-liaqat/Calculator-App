@@ -8,12 +8,24 @@
         <local:CalculatorViewModel />
     </ContentPage.BindingContext>
 
+
+
     <StackLayout Padding="20" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
-        <Label Text="Calculator" TextColor="Gray" FontSize="50" FontFamily="digital-7.ttf#Digital-7 Regualar" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Padding="35" Margin="0,0,0,30"/>
+
+        <CollectionView ItemsSource="{Binding SavedDisplayTexts}"
+                 VerticalOptions="Center"  >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding}"
+                    FontSize="Small"
+                    TextColor="Gray" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
         <Frame BackgroundColor="WhiteSmoke"  CornerRadius="20" 
            Padding="15" Margin="0,0,0,20">
             <Label Text="{Binding DisplayText}"
-               FontFamily="digital-7.ttf#Digital-7 Regualar"
+          FontFamily="digital-7.ttf#Digital-7 Regualar"
                FontSize="50"
                FontAttributes="Bold"
                HorizontalOptions="End"
@@ -37,30 +49,33 @@
             <Button 
                 Grid.Row="0" 
                 Grid.Column="0" 
+                Grid.RowSpan="1"
                 Text="AC" 
-                FontSize="Large" 
+                FontSize="Medium" 
                 FontAttributes="Bold" 
-                Padding="18"
-                CornerRadius="70"
+                Padding="14"
+                CornerRadius="60"
                 Command="{Binding ButtonCommand}" 
                 CommandParameter="AC"/>
             <Button 
                 Grid.Row="0" 
                 Grid.Column="1" 
+                Grid.RowSpan="1"
                 Text="--" 
-                FontSize="Large" 
+                FontSize="Large"
                 FontAttributes="Bold" 
-                Padding="18"
-                CornerRadius="70"
+                Padding="80"
+                CornerRadius="60"
                 Command="{Binding ButtonCommand}" 
                 CommandParameter="--"/>
             <Button 
                 Grid.Row="0" 
                 Grid.Column="2" 
                 Text="%" 
+                Grid.RowSpan="1"
                 FontSize="Large" 
                 FontAttributes="Bold" 
-                Padding="18"
+                Padding="14"
                 CornerRadius="70"
                 Command="{Binding ButtonCommand}" 
                 CommandParameter="%"/>
@@ -68,22 +83,23 @@
                 Grid.Row="0" 
                 Grid.Column="3" 
                 Text="/" 
+                Grid.RowSpan="1"
                 FontSize="Large" 
                 FontAttributes="Bold" 
-                Padding="18"
+                Padding="14"
                 CornerRadius="70"
                 BackgroundColor="Orange"
-                TextColor="White"
+                TextColor="white"
                 Command="{Binding ButtonCommand}" 
                 CommandParameter="/"/>
-           
+
             <Button 
                Grid.Row="1" 
                Grid.Column="0"
                Text="1"
-               FontSize="Large"
+              FontSize="Medium"
                FontAttributes="Bold"
-               Padding="18"
+              Padding="16"
                CornerRadius="70"
                BackgroundColor="Gray"
                TextColor="White"
@@ -93,10 +109,10 @@
                Grid.Row="1" 
                Grid.Column="1"
                Text="2"
-               FontSize="Large"
+               FontSize="Medium"
                FontAttributes="Bold"
                CornerRadius="70"
-               Padding="18"
+               Padding="14"
                 TextColor="White"
                BackgroundColor="Gray"
                 Command="{Binding ButtonCommand}" 
@@ -105,11 +121,11 @@
                Grid.Row="1" 
                Grid.Column="2"
                Text="3"
-               FontSize="Large"
+               FontSize="Medium"
                FontAttributes="Bold"
                BackgroundColor="Gray"
                CornerRadius="70"
-               Padding="18"
+               Padding="16"
                 TextColor="White"
                Command="{Binding ButtonCommand}" 
                CommandParameter="3"/>
@@ -117,24 +133,24 @@
               Grid.Row="1" 
               Grid.Column="3"
               Text="*"
-              FontSize="Large"
+              FontSize="Medium"
               BackgroundColor="Orange"
               FontAttributes="Bold"
               CornerRadius="70"
                 TextColor="White"
-              Padding="18"
+              Padding="12"
               Command="{Binding ButtonCommand}" 
               CommandParameter="*"/>
-            
+
             <Button 
               Grid.Row="2" 
               Grid.Column="0"
               Text="4"
-              FontSize="Large"
+              FontSize="Medium"
               FontAttributes="Bold"
               BackgroundColor="Gray"
                 TextColor="White"
-              Padding="18"
+              Padding="12"
               CornerRadius="70"
               Command="{Binding ButtonCommand}" 
               CommandParameter="4"/>
@@ -142,9 +158,9 @@
               Grid.Row="2" 
               Grid.Column="1"
               Text="5"
-              FontSize="Large"
+              FontSize="Medium"
               FontAttributes="Bold"
-              Padding="18"
+             Padding="12"
               CornerRadius="70"
               BackgroundColor="Gray"
                 TextColor="White"
@@ -154,11 +170,11 @@
               Grid.Row="2" 
               Grid.Column="2"
               Text="6"
-              FontSize="Large"
+              FontSize="Medium"
               FontAttributes="Bold"
               BackgroundColor="Gray"
                 TextColor="White"
-              Padding="18"
+              Padding="12"
               CornerRadius="70"
               Command="{Binding ButtonCommand}" 
               CommandParameter="6"/>
@@ -166,10 +182,10 @@
                Grid.Row="2" 
                Grid.Column="3"
                Text="-"
-               FontSize="Large"
+               FontSize="Medium"
                FontAttributes="Bold"
                 TextColor="White"
-               Padding="18"
+               Padding="12"
                CornerRadius="70"
                 BackgroundColor="Orange"
                Command="{Binding ButtonCommand}" 
@@ -179,9 +195,9 @@
                Grid.Row="3" 
                Grid.Column="0"
                Text="7"
-               FontSize="Large"
+               FontSize="Medium"
                FontAttributes="Bold"
-               Padding="18"
+               Padding="12"
                CornerRadius="70"
                BackgroundColor="Gray"
                 TextColor="White"
@@ -191,9 +207,9 @@
               Grid.Row="3" 
               Grid.Column="1"
               Text="8"
-              FontSize="Large"
+              FontSize="Medium"
               FontAttributes="Bold"
-              Padding="18"
+              Padding="12"
               CornerRadius="70"
                 TextColor="White"
               BackgroundColor="Gray"
@@ -202,13 +218,14 @@
             <Button 
                Grid.Row="3" 
                Grid.Column="2"
+                
                Text="9"
-               FontSize="Large"
+              FontSize="Medium"
                FontAttributes="Bold"
                BackgroundColor="Gray"
                 TextColor="White"
                CornerRadius="70"               
-                Padding="18"
+                Padding="12"
                Command="{Binding ButtonCommand}" 
                CommandParameter="9"/>
             <Button 
@@ -216,9 +233,9 @@
               Grid.Column="3"
               Grid.RowSpan="2"
               Text="+"
-              FontSize="Large"
+              FontSize="Medium"
               FontAttributes="Bold"
-              Padding="18"
+              Padding="12"
               CornerRadius="70"
                 TextColor="White"
                BackgroundColor="Orange"
@@ -229,9 +246,9 @@
               Grid.Row="4" 
               Grid.Column="0"
               Text="."
-              FontSize="Large"
+              FontSize="Medium"
               FontAttributes="Bold"
-              Padding="18"
+              Padding="12"
               CornerRadius="70"
                 TextColor="White"
               BackgroundColor="Gray"
@@ -241,10 +258,10 @@
               Grid.Row="4" 
               Grid.Column="1"
               Text="0"
-              FontSize="Large"
+              FontSize="Medium"
               FontAttributes="Bold"
               BackgroundColor="Gray"
-              Padding="18"
+              Padding="12"
                CornerRadius="70"
                 TextColor="White"
               Command="{Binding ButtonCommand}" 
@@ -253,14 +270,15 @@
               Grid.Row="4" 
               Grid.Column="2"
               Text="="
-              FontSize="Large"
+              FontSize="Medium"
               FontAttributes="Bold"
               BackgroundColor="Gray"
                 TextColor="White"
-               Padding="18"
+               Padding="12"
                 CornerRadius="70"
                Command="{Binding ButtonCommand}" 
               CommandParameter="="/>
         </Grid>
     </StackLayout>
 </ContentPage>
+

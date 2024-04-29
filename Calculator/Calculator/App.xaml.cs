@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,12 +8,13 @@ namespace Calculator
 {
     public partial class App : Application
     {
-
         public App()
         {
             InitializeComponent();
+        
 
-            //  MainPage = new MainPage();
+
+             // MainPage = new MainPage();
             MainPage = new HomePage();
         }
 

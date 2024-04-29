@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SQLite;
 
 namespace Calculator.Model
 {
-    class Calculators
+    public class Calculators
     {
         private decimal firstNumber;
         private string operatorName;
@@ -26,6 +24,13 @@ namespace Calculator.Model
         {
             get { return isOperatorClicked; }
             set { isOperatorClicked = value; }
+        }
+
+        public void Reset()
+        {
+            firstNumber = 0;
+            operatorName = null;
+            isOperatorClicked = false;
         }
 
         public decimal Calculate(decimal secondNumber)

@@ -10,14 +10,14 @@ using Xamarin.Forms.Xaml;
 
 namespace Calculator
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class HomePage : ContentPage
-	{
-		public HomePage ()
-		{
-			InitializeComponent ();
-            BindingContext = new CalculatorViewModel();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class HomePage : ContentPage
+    {
 
+        public HomePage()
+        {
+            InitializeComponent();
+            BindingContext = new CalculatorViewModel();
         }
     }
 }
