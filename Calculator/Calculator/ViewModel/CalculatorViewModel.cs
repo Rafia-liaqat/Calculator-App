@@ -17,8 +17,8 @@ namespace Calculator.ViewModel
         private Calculators calculators;
         public ICommand ButtonCommand { get; private set; }
 
-        private string displayText;
-        public string DisplayText
+        private ObservableCollection<string>  displayText;
+        public ObservableCollection <string> DisplayText
         {
             get { return displayText; }
             set
@@ -30,19 +30,19 @@ namespace Calculator.ViewModel
                 }
             }
         }
-        private ObservableCollection<string> savedDisplayTexts;
-        public ObservableCollection<string> SavedDisplayTexts
-        {
-            get { return savedDisplayTexts; }
-            set
-            {
-                if (savedDisplayTexts != value)
-                {
-                    savedDisplayTexts = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SavedDisplayTexts"));
-                }
-            }
-        }
+        //private ObservableCollection<string> savedDisplayTexts;
+        //public ObservableCollection<string> SavedDisplayTexts
+        //{
+        //    get { return savedDisplayTexts; }
+        //    set
+        //    {
+        //        if (savedDisplayTexts != value)
+        //        {
+        //            savedDisplayTexts = value;
+        //            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SavedDisplayTexts"));
+        //        }
+        //    }
+        //}
         private string previousButtonClicked;
         private decimal firstNumber;
         private string currentOperator;
@@ -52,14 +52,14 @@ namespace Calculator.ViewModel
             calculators = new Calculators();
             ButtonCommand = new Command<string>(ButtonClicked);
             DisplayText = "0";
-            SavedDisplayTexts = new ObservableCollection<string>();
+          //  SavedDisplayTexts = new ObservableCollection<string>();
         }
         private void ButtonClicked(string buttonText)
         {
             if (buttonText == "AC")
             {
                 DisplayText = "";
-                SavedDisplayTexts.Clear();
+               // SavedDisplayTexts.Clear();
                 calculators.Reset();
                 firstNumber = 0;
                 currentOperator = null;
@@ -68,7 +68,7 @@ namespace Calculator.ViewModel
             {
                 CalculateExpression();
                 string savedDisplayText = $"{DisplayText}";
-                SavedDisplayTexts.Add(savedDisplayText);
+              //  SavedDisplayTexts.Add(savedDisplayText);
             }
             else if (buttonText == "--")
             {
@@ -205,9 +205,9 @@ namespace Calculator.ViewModel
 
             DisplayText = finalResult.ToString();
 
-            sb.Append(finalResult.ToString());
-            string savedDisplayText = sb.ToString();
-            SavedDisplayTexts.Add(savedDisplayText);
+            //sb.Append(finalResult.ToString());
+            //string savedDisplayText = sb.ToString();
+            //SavedDisplayTexts.Add(savedDisplayText);
         }
 
 

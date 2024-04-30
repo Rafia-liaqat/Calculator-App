@@ -15,7 +15,7 @@ namespace Calculator
 
 
              // MainPage = new MainPage();
-            MainPage = new HomePage();
+            MainPage = new Calculatorro();
         }
 
         protected override void OnStart()

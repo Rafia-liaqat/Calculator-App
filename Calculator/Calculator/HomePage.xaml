@@ -12,16 +12,16 @@
 
     <StackLayout Padding="20" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
 
-        <CollectionView ItemsSource="{Binding SavedDisplayTexts}"
+        <ListView ItemsSource="{Binding DisplayTexts}"
                  VerticalOptions="Center"  >
-            <CollectionView.ItemTemplate>
+            <ListView.ItemTemplate>
                 <DataTemplate>
                     <Label Text="{Binding}"
                     FontSize="Small"
                     TextColor="Gray" />
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            </ListView.ItemTemplate>
+        </ListView>
         <Frame BackgroundColor="WhiteSmoke"  CornerRadius="20" 
            Padding="15" Margin="0,0,0,20">
             <Label Text="{Binding DisplayText}"

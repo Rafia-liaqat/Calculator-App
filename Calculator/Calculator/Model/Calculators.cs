@@ -2,8 +2,13 @@
 
 namespace Calculator.Model
 {
+    [Table("Calculators")]
     public class Calculators
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public string DisplayText { get; set; }
+    
         private decimal firstNumber;
         private string operatorName;
         private bool isOperatorClicked;

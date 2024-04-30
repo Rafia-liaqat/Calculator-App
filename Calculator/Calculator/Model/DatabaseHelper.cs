@@ -17,14 +17,14 @@ namespace Calculator.Model
 
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "calculator.db");
             database = new SQLiteConnection(dbPath);
-            database.CreateTable<CalculatorData>();
+            database.CreateTable<Calculators>();
         }
 
         public static void SaveDisplayText(string displayText)
         {
             Initialize();
 
-            var savedData = database.Table<CalculatorData>().FirstOrDefault();
+            var savedData = database.Table<Calculators>().FirstOrDefault();
             if (savedData != null)
             {
                 savedData.DisplayText = displayText;
@@ -32,7 +32,7 @@ namespace Calculator.Model
             }
             else
             {
-                database.Insert(new CalculatorData { DisplayText = displayText });
+                database.Insert(new Calculators { DisplayText = displayText });
             }
         }
 
@@ -40,14 +40,14 @@ namespace Calculator.Model
         {
             Initialize();
 
-            var savedData = database.Table<CalculatorData>().FirstOrDefault();
+            var savedData = database.Table<Calculators>().FirstOrDefault();
             return savedData?.DisplayText;
         }
 
         public static void DeleteSavedDisplayText()
         {
             Initialize();
-            database.DeleteAll<CalculatorData>();
+            database.DeleteAll<Calculators>();
         }
     }
 }
