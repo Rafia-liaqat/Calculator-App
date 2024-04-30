@@ -109,7 +109,7 @@ namespace Calculator.ViewModel
                 previousButtonClicked = null;
             }
         }
-        //splits the expression into numbers and operators.handles negative numbers,checks for valid input and displays "Error" if there's an issue and calculates the expression step-by-step based on operator precedenceof BODmas updates the display with the final result and adds the entire calculation with the result to the history.
+        //Fiirst of all it splits the expression into numbers and operators nad handles negative numbers,checks for valid input and displays "Error" if there's an issue and calculates the expression step-by-step based on operator precedenceof BODmas updates the display with the final result and adds the entire calculation with the result to the history.
 
 
 
@@ -162,10 +162,10 @@ namespace Calculator.ViewModel
                     return;
                 }
             }
-
+            // I  used string builder for saving my display text in the exact format  sb.Append is showing the saveddisplaytext 9+8-98=99
             StringBuilder sb = new StringBuilder();
             sb.Append(expression).Append(" = ");
-
+            // It's handle the BODmas function
             for (int i = 0; i < operators.Count;)
             {
                 if (operators[i] == "*" || operators[i] == "/")
