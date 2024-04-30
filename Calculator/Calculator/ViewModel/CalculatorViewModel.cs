@@ -86,7 +86,9 @@ namespace Calculator.ViewModel
                 decimal percentValue = Convert.ToDecimal(DisplayText);
                 string result = (percentValue / 100).ToString("0.##");
                 DisplayText = result;
+                
             }
+            // Stores the operator for later calaculation and display nad update  the text 
             else if (buttonText == "*" || buttonText == "/" || buttonText == "+" || buttonText == "-")
             {
                 previousButtonClicked = buttonText;
@@ -107,6 +109,11 @@ namespace Calculator.ViewModel
                 previousButtonClicked = null;
             }
         }
+        //splits the expression into numbers and operators.handles negative numbers,checks for valid input and displays "Error" if there's an issue and calculates the expression step-by-step based on operator precedenceof BODmas updates the display with the final result and adds the entire calculation with the result to the history.
+
+
+
+
         private void CalculateExpression()
         {
             string expression = DisplayText;
